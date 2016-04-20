@@ -2,6 +2,8 @@ package com.example.ros_jheng.memorysquares;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 public class Test extends AppCompatActivity {
 
@@ -11,10 +13,15 @@ public class Test extends AppCompatActivity {
         setContentView(R.layout.activity_test);
     }
 
+    public void buttonClick(View view) {
+        TextView tv = (TextView)findViewById(R.id.textView1);
+        tv.setText("Welcome to android");
+    }
+
+
     /*      Scanner console = new Scanner(System.in);
 
       int size = 0;
-/////////////
       System.out.println("Welcome to Memory Squares!");
       Thread.sleep(2000);
       System.out.println("In this game, you need to remember the plaement");
