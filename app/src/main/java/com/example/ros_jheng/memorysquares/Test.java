@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import java.util.*;
 
 public class Test extends AppCompatActivity {
+    int countPress = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +17,12 @@ public class Test extends AppCompatActivity {
 
     public void buttonClick(View view) {
         TextView tv = (TextView)findViewById(R.id.textView1);
-        tv.setText("Welcome to android");
+        ArrayList<String> intro = new ArrayList<>();
+        intro.add(0, "In this game, you need to remember the " +
+                "placement of the red squares and try to replicate them");
+        intro.add(1, "Good Luck!");
+        tv.setText(intro.get(countPress));
+        countPress++;
     }
 
 
