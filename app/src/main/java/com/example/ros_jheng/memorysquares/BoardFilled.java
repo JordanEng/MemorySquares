@@ -10,6 +10,7 @@ public class BoardFilled extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_filled);
     }
+
     /*
        private int size;
    private int dimension;
