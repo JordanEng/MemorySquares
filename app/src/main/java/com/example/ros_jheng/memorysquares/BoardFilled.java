@@ -2,8 +2,18 @@ package com.example.ros_jheng.memorysquares;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import java.util.ArrayList;
 
 public class BoardFilled extends AppCompatActivity {
+    private int size;
+    private int dimension;
+    private ArrayList<Integer> redSquares;
+
+    public BoardFilled(int size){
+        this.size = size;
+        dimension = size * 100;
+        redSquares = new ArrayList<Integer>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +27,7 @@ public class BoardFilled extends AppCompatActivity {
    private ArrayList<Integer> redSquares;
 
    // Constructor for the filled board
-   public BoardFilled(int size){
-      this.size = size;
-      dimension = size * 100;
-      redSquares = new ArrayList<Integer>();
-   }
+
 
    // Generates the board with randomly colored squares by
    // by taking the number the user submitted before.
