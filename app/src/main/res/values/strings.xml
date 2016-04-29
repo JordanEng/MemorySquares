@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MemorySquares</string>
     <string name="menu_button">Continue</string>
+    <string name="welcome">Welcome To Memory Squares!</string>
 </resources>

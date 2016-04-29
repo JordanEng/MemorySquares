@@ -2,23 +2,24 @@ package com.example.ros_jheng.memorysquares;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.content.Intent;
+import android.os.Handler;
 import java.util.ArrayList;
 
 public class BoardFilled extends AppCompatActivity {
-    private int size;
-    private int dimension;
-    private ArrayList<Integer> redSquares;
-
-    public BoardFilled(int size){
-        this.size = size;
-        dimension = size * 100;
-        redSquares = new ArrayList<Integer>();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_filled);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(BoardFilled.this, ClickBoard.class);
+                startActivity(i);
+                finish();
+            }
+        }, 10000);
     }
 
     /*
