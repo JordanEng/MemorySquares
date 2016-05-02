@@ -4,23 +4,43 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;
+import android.widget.ArrayAdapter;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BoardFilled extends AppCompatActivity {
+
+    ArrayList<Integer> actualList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_filled);
+        setTitle("Watch the Squares");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent i = new Intent(BoardFilled.this, ClickBoard.class);
                 startActivity(i);
+
+                Random rand = new Random();
+                int random = rand.nextInt(2);
+                if(random == 0){
+                    actualList.add(1);
+                } else{
+                    actualList.add(0);
+                }
+                Integer[] intArray = actualList.toArray(new Integer[0]);
+
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<Integer>(this,
+                        android.R.layout.simple_list_item_1, stringArray);
+
                 finish();
             }
         }, 10000);
     }
+
 
     /*
        private int size;
