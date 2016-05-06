@@ -22,11 +22,11 @@ public class ClickBoard extends AppCompatActivity {
         Button b = (Button) v;
         String buttonText = b.getText().toString();
         int buttonNumber = Integer.parseInt(buttonText);
-        if(s[0].equals("1")){
-            b.setBackgroundColor(Color.RED);
-        } else {
-            b.setBackgroundColor(Color.BLACK);
-        }
+//        if(s[0].equals("1")){
+//            b.setBackgroundColor(Color.RED);
+//        } else {
+//            b.setBackgroundColor(Color.BLACK);
+//        }
     }
 }
     /*
