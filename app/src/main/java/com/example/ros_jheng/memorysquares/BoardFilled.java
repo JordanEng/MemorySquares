@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.RadioGroup;
 import java.util.ArrayList;
 
 public class BoardFilled extends AppCompatActivity {
@@ -13,6 +17,33 @@ public class BoardFilled extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_filled);
         setTitle("Watch the Squares");
+
+        GridLayout gridLayout = (GridLayout) findViewById(R.id.boardfilled);
+
+        int total = 4;
+        int column = 2;
+        int row = total / column;
+        assert gridLayout != null;
+        gridLayout.setColumnCount(column);
+        gridLayout.setRowCount(row + 1);
+        for (int i = 0, c = 0, r = 0; i < total; i++, c++) {
+            if (c == column) {
+                c = 0;
+                r++;
+            }
+            Button buttonGrid = new Button(this);
+            buttonGrid.setLayoutParams(new RadioGroup.LayoutParams(100, 100));
+
+            GridLayout.Spec rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 1);
+            GridLayout.Spec colspan = GridLayout.spec(GridLayout.UNDEFINED, 1);
+            if (r == 0 && c == 0) {
+                //Log.e("", "spec");
+                colspan = GridLayout.spec(GridLayout.UNDEFINED, 2);
+                rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 2);
+            }
+            GridLayout.LayoutParams gridParam = new GridLayout.LayoutParams(rowSpan, colspan);
+            gridLayout.addView(buttonGrid, gridParam);
+        }
 
         new Handler().postDelayed(new Runnable() {
             @Override
