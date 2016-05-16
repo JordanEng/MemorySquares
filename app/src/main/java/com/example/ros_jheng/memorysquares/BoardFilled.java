@@ -39,7 +39,7 @@ public class BoardFilled extends AppCompatActivity {
                 Button button = new Button(this);
                 button.setBackgroundColor(Color.RED);
                 button.setHeight(1000);
-                button.setWidth(100);
+                button.setWidth(1000);
 
                 GridLayout.Spec rowspan = GridLayout.spec(currentRow, 1);
                 GridLayout.Spec colspan = GridLayout.spec(currentColumn, 1);
