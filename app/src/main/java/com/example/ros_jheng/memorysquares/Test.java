@@ -27,7 +27,7 @@ public class Test extends AppCompatActivity {
         tv.setText(intro.get(countPress));
         countPress++;
 
-        if (countPress >= 2) {
+        if (countPress == 2) {
             Intent intent = new Intent(this, BoardFilled.class);
             startActivity(intent);
         }

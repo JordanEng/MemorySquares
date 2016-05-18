@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BoardFilled extends AppCompatActivity {
 
@@ -23,11 +24,11 @@ public class BoardFilled extends AppCompatActivity {
         gridLayout.setUseDefaultMargins(true);
         gridLayout.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
 
-        int total = 4;
-        int column = 2;
+        int total = 25;
+        int column = 5;
         int row = total / column;
         gridLayout.setColumnCount(column);
-        gridLayout.setRowCount(row + column);
+        gridLayout.setRowCount(row);
         int currentRow = 0;
         int currentColumn = 0;
 
@@ -37,9 +38,15 @@ public class BoardFilled extends AppCompatActivity {
                 currentRow++;
             }
                 Button button = new Button(this);
-                button.setBackgroundColor(Color.RED);
-                button.setHeight(1000);
-                button.setWidth(1000);
+
+                Random rand = new Random();
+                int random = rand.nextInt(2);
+
+                if(random == 1) {
+                    button.setBackgroundColor(Color.RED);
+                }
+                button.setHeight(100);
+                button.setWidth(50);
 
                 GridLayout.Spec rowspan = GridLayout.spec(currentRow, 1);
                 GridLayout.Spec colspan = GridLayout.spec(currentColumn, 1);
@@ -48,25 +55,6 @@ public class BoardFilled extends AppCompatActivity {
                 currentColumn++;
 
         }
-
-//        for (int i = 0, c = 0, r = 0; i < total; i++, c++) {
-//            if (c == column) {
-//                c = 0;
-//                r++;
-//            }
-//            Button buttonGrid = new Button(this);
-//            buttonGrid.setLayoutParams(new RadioGroup.LayoutParams(100, 100));
-//
-//            GridLayout.Spec rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 1);
-//            GridLayout.Spec colspan = GridLayout.spec(GridLayout.UNDEFINED, 1);
-//            if (r == 0 && c == 0) {
-//                Log.e("", "spec");
-//                colspan = GridLayout.spec(GridLayout.UNDEFINED, 2);
-//                rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 2);
-//            }
-//            GridLayout.LayoutParams gridParam = new GridLayout.LayoutParams(rowSpan, colspan);
-//            gridLayout.addView(buttonGrid, gridParam);
-//        }
 
         new Handler().postDelayed(new Runnable() {
             @Override
